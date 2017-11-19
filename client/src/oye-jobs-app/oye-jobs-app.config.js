@@ -26,5 +26,5 @@ export function mdAppThemeConfig($mdThemingProvider) {
   $mdThemingProvider
     .theme('default')
     .primaryPalette('oyeJobRed')
-    .accentPalette('pink');
+    .accentPalette('green');
 }
