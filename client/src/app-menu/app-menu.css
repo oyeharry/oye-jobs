@@ -1,0 +1,26 @@
+app-menu md-sidenav {
+  height: 100%;
+}
+app-menu md-list-item, app-menu md-list-item md-icon {
+  // transition: color 0.4s ease-out;
+}
+app-menu md-list-item.active, app-menu md-list-item.active md-icon {
+  color: #4caf50;
+}
+app-menu md-list-item.user-info {
+  background-color: #eee;
+}
+app-menu md-list-item.user-info md-icon {
+  overflow: hidden;
+}
+app-menu md-list-item.user-info md-icon svg {
+  transform: scale(1.8);
+}
+@media (min-width:960px) {
+  app-menu md-sidenav {
+    background-color: transparent;
+  }
+  app-menu md-sidenav {
+    width: 270px;
+  }
+}

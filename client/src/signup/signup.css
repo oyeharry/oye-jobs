@@ -1,0 +1,16 @@
+signup > .container {
+  padding: 16px;
+  max-width: 600px;
+  margin: 40px auto 60px;
+}
+signup > .container {
+  margin-bottom: 30px;
+}
+
+signup > .container md-input-container {
+  margin-bottom: 0;
+}
+
+signup > .container .gender-input {
+  margin-bottom: 30px;
+}

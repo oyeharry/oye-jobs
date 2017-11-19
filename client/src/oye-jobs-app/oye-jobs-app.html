@@ -1,0 +1,31 @@
+<div class="container" layout="column" ng-cloak>
+
+  <md-progress-linear class="progress-bar" md-mode="indeterminate" md-component-id="appProgressLoader" ng-class="{done: $ctrl.transitionLoaded}">
+  </md-progress-linear>
+  <!-- toolbar -->
+  <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-5dp">
+    <md-button class="menu md-icon-button" hide-gt-sm ng-click="$ctrl.toggleMenu()" aria-label="Show User List">
+      <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <h1><a ui-sref="jobs">Oye Jobs</a></h1>
+
+    <span flex></span>
+    <md-button aria-label="Sign In" ui-sref="signin" ng-hide="$ctrl.Auth.isLoggedIn()">
+      Sign in
+    </md-button>
+    <md-button aria-label="Sign In" ui-sref="signout" ng-show="$ctrl.Auth.isLoggedIn()">
+      Sign out
+    </md-button>
+  </md-toolbar>
+
+  <md-content flex layout="row">
+
+    <app-menu></app-menu>
+
+    <div flex class="content" ng-class="{'routing':$ctrl.$rootScope.routing}" ui-view="">
+
+    </div>
+
+  </md-content>
+
+</div>

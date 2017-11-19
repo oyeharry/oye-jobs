@@ -1,0 +1,20 @@
+manage-users .container {
+  max-width: 800px;
+  margin: 40px auto 60px;
+}
+manage-users .virtual-repeat-container {
+  height: 100%;
+  width: 100%;
+}
+manage-users md-list-item  md-icon.avatar-icon {
+  overflow: hidden;
+}
+manage-users md-progress-linear.loading-liner .md-container {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+manage-users md-progress-linear .md-bar {
+  background-color: #999;
+}
+manage-users md-list-item  md-icon.avatar-icon svg {
+  transform: scale(1.8);
+}

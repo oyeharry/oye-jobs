@@ -1,0 +1,42 @@
+<div class="container md-whiteframe-1dp" layout="column">
+
+  <md-content>
+    <h2 class="md-headline">
+      Manage
+    </h2>
+
+    <ul layout="row" layout-wrap layout-align="left center" class="manage-list">
+
+    <li flex="50" flex-gt-md="25" ng-if="$ctrl.Auth.hasScope('jobs:write')">
+        <md-button aria-label="Jobs" class="md-secondary md-raised box-btn" ui-sref="manageJobs">
+          <md-icon md-svg-icon="work" class="block-icon"></md-icon>
+          Jobs
+        </md-button>
+      </li>
+
+      <li flex="50" flex-gt-md="25" ng-if="$ctrl.Auth.hasScope('users:write&users:read')">
+        <md-button aria-label="Users" class="md-secondary md-raised box-btn" ui-sref="manageUsers">
+          <md-icon md-svg-icon="person" class="block-icon"></md-icon>
+          Users
+        </md-button>
+      </li>
+
+      <li flex="50" flex-gt-md="25" ng-if="$ctrl.Auth.hasScope('roles:write&roles:read')">
+        <md-button aria-label="Roles" class="md-secondary md-raised box-btn" ui-sref="manageRoles">
+          <md-icon md-svg-icon="supervisor-account" class="block-icon"></md-icon>
+          Roles
+        </md-button>
+      </li>
+
+      <li flex="50" flex-gt-md="25" ng-if="$ctrl.Auth.hasScope('scopes:write&scopes:read')">
+        <md-button aria-label="Scopes" class="md-secondary md-raised box-btn" ui-sref="manageScopes">
+          <md-icon md-svg-icon="device-hub" class="block-icon"></md-icon>
+          Scopes
+        </md-button>
+      </li>
+
+
+    </ul>
+  </md-content>
+
+</div>

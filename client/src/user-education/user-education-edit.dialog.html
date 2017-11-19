@@ -1,0 +1,66 @@
+<md-dialog aria-label="Edit Basic Information" style="min-width: 300px;">
+  <form name="form" ng-submit="onFormSubmit(form)">
+
+    <md-dialog-content style="max-width:800px; padding:32px 0px;">
+
+      <div style="padding:0 16px;">
+        <h3 class="md-headline" style="margin-top:0;">Education</h3>
+
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>School name</label>
+          <input required name="schoolName" ng-model="education.schoolName">
+          <div ng-messages="form.schoolName.$error">
+            <div ng-message="required">School name is required.</div>
+            <div ng-message="wentWrong">Something went wrong.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Degree/Field of Study</label>
+          <input required name="studyName" ng-model="education.studyName">
+          <div ng-messages="form.studyName.$error">
+            <div ng-message="required">Study/Degree is required.</div>
+            <div ng-message="wentWrong">Something went wrong.</div>
+          </div>
+        </md-input-container>
+
+        <div layout-gt-sm="row">
+
+          <month-select label="Start Month" on-month-change="updateStartMonth(value)" required="true" value="{{startMonth}}" flex-gt-sm>
+          </month-select>
+
+          <year-input form="form" label="Start Year" name="startYear" year="startYear" on-update="updateStartYear(year)" flex-gt-sm></year-input>
+
+        </div>
+
+        <div layout-gt-sm="row">
+
+          <month-select label="End Month" on-month-change="updateEndMonth(value)" required="true" value="{{endMonth}}" flex-gt-sm>
+          </month-select>
+
+          <year-input form="form" label="End Year" name="endYear" year="endYear" on-update="updateEndYear(year)" flex-gt-sm></year-input>
+
+        </div>
+
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Description</label>
+          <input name="description" ng-model="education.description">
+        </md-input-container>
+
+      </div>
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="onCancelClick()" class="">
+        Cancel
+      </md-button>
+      <md-button class="md-primary" type="submit">
+        Ok
+      </md-button>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>

@@ -1,0 +1,24 @@
+job-detail > .container {
+  max-width: 800px;
+  margin: 40px auto 60px;
+}
+
+job-detail md-card-content {
+  padding-bottom: 60px;
+}
+
+job-detail md-card-content ul {
+  padding: 0 18px;
+}
+
+job-detail button md-icon {
+  margin-right: 8px;
+}
+
+job-detail .detail-list md-list-item {
+  padding: 0;
+}
+
+job-detail .container md-card-title-text .md-subhead.no-apply-msg {
+  color:#ff0000;
+}

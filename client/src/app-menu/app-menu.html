@@ -1,0 +1,44 @@
+<md-sidenav md-is-locked-open="$mdMedia('min-width: 960px')" class="md-whiteframe-2sdp" md-component-id="mdcAppMenu">
+
+  <md-list>
+
+    <md-list-item class="md-2-line user-info" ng-show="$ctrl.Auth.isLoggedIn()">
+      <md-icon ng-show="!$ctrl.Auth.getCurrentUser().photo" md-svg-icon="{{$ctrl.Auth.getCurrentUser().avatar}}" class="md-avatar-icon" aria-label="{{$ctrl.Auth.getCurrentUser().name}}">
+      </md-icon>
+      <img ng-show="$ctrl.Auth.getCurrentUser().photo" class="md-avatar" ng-src="{{$ctrl.Auth.getCurrentUser().profile.photoUrl}}" alt="{{$ctrl.Auth.getCurrentUser().name}}" />
+      <div class="md-list-item-text">
+        <h3>{{$ctrl.Auth.getCurrentUser().name}}</h3>
+        <p>{{$ctrl.Auth.getCurrentUser().email}}</p>
+      </div>
+    </md-list-item>
+
+    <md-list-item ng-click="null" ui-sref="jobs" ui-sref-active-eq="active">
+      <md-icon md-svg-icon="work"></md-icon>
+      <p>Jobs</p>
+    </md-list-item>
+
+    <md-list-item ng-click="null" ui-sref="profile" ui-sref-active-eq="active" ng-show="$ctrl.Auth.isLoggedIn()">
+      <md-icon md-svg-icon="account-circle"></md-icon>
+      <p>Profile</p>
+    </md-list-item>
+
+    <md-list-item ng-click="null" ui-sref="signup" ui-sref-active-eq="active" ng-hide="$ctrl.Auth.isLoggedIn()">
+      <md-icon md-svg-icon="account-circle"></md-icon>
+      <p>Create Account</p>
+    </md-list-item>
+
+  </md-list>
+
+  <md-divider ng-show="$ctrl.Auth.hasScope('users:write&users:read') || $ctrl.Auth.hasScope('roles:write&roles:read') || $ctrl.Auth.hasScope('scopes:write&scopes:read') || $ctrl.Auth.hasScope('|jobs:write')">
+  </md-divider>
+
+  <md-list>
+
+    <md-list-item ng-click="null" ui-sref="manage({tabId:''})" ui-sref-active-eq="active" ng-show="$ctrl.Auth.hasScope('users:write&users:read') || $ctrl.Auth.hasScope('roles:write&roles:read') || $ctrl.Auth.hasScope('scopes:write&scopes:read') || $ctrl.Auth.hasScope('|jobs:write')">
+      <md-icon md-svg-icon="supervisor-account"></md-icon>
+      <p>Manage</p>
+    </md-list-item>
+
+  </md-list>
+
+</md-sidenav>

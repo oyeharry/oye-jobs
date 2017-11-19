@@ -1,0 +1,24 @@
+manage-jobs .container {
+  max-width: 800px;
+  margin: 40px auto 60px;
+  height: 100%;
+}
+manage-jobs .container md-input-container {
+  margin-bottom: 30px;
+}
+manage-jobs md-list-item, manage-jobs md-list-item .md-list-item-inner {
+  min-height: 102px !important;
+}
+manage-jobs .virtual-repeat-container {
+  height: 100%;
+  width: 100%;
+}
+manage-jobs md-progress-linear.loading-liner .md-container {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+manage-jobs md-progress-linear .md-bar {
+  background-color: #999;
+}
+manage-jobs .user-job-info {
+	margin-bottom: 30px;
+}

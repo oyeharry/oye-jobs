@@ -1,0 +1,28 @@
+job-users .container {
+  max-width: 800px;
+  margin: 40px auto 60px;
+}
+
+job-users .md-headline.job-head {
+  margin-bottom: 0;
+  padding-bottom:0;
+}
+
+job-users .md-headline.job-head a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+job-users .md-subhead.job-subhead {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+job-users md-list-item md-icon.avatar-icon {
+  overflow: hidden;
+}
+
+job-users md-list-item md-icon.avatar-icon svg {
+  transform: scale(1.8);
+}
+

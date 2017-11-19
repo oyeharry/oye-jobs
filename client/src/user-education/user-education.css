@@ -1,0 +1,13 @@
+user-education .md-title {
+	margin:0;
+	padding:0 16px;
+}
+
+user-education md-content {
+  background-color: #fff;
+}
+
+user-education md-list-item,
+user-education md-list-item .md-list-item-inner {
+  min-height: 102px !important;
+}

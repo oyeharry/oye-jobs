@@ -1,0 +1,5 @@
+# node_modules ignored by default
+
+# Ignore other temp files, modules and build files
+server/temp/**/*.js
+public

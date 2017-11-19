@@ -1,0 +1,77 @@
+<md-dialog aria-label="Account Setting" style="min-width: 300px;">
+  <form name="form" ng-submit="$ctrl.onFormSubmit(form)">
+
+    <md-dialog-content style="max-width:800px; padding:32px 0px;">
+
+      <div style="padding:0 16px;">
+        <h3 class="md-headline" style="margin-top:0;">Account Setting</h3>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>First name</label>
+            <input required name="firstName" ng-model="$ctrl.user.firstName">
+            <div ng-messages="form.firstName.$error">
+              <div ng-message="required">First name is required.</div>
+              <div ng-message="wentWrong">Something went wrong.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Last Name</label>
+            <input required name="lastName" ng-model="$ctrl.user.lastName">
+            <div ng-messages="form.lastName.$error">
+              <div ng-message="required">Last name is required.</div>
+              <div ng-message="wentWrong">Something went wrong.</div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input required type="email" name="email" ng-model="$ctrl.user.email" autocomplete="off">
+          <div ng-messages="form.email.$error">
+            <div ng-message="required">Email is required.</div>
+            <div ng-message="exist">This email already in use.</div>
+            <div ng-message="wentWrong">Something went wrong.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Gender</label>
+          <md-select ng-model="$ctrl.user.gender">
+            <md-option value="Male">
+              Male
+            </md-option>
+            <md-option value="Female">
+              Female
+            </md-option>
+            <md-option value="Other">
+              Other
+            </md-option>
+            <md-option value="Rather not say">
+              Rather not say
+            </md-option>
+          </md-select>
+        </md-input-container>
+
+        <date-input-row month-label="Birth Month" day-label="Birth Day" year-label="Birth Year" year-name="birthYear" day-name="birthDay" form="form" on-date-update="$ctrl.updateBirthDate(date)" date="{{$ctrl.user.birthDate.date}}" required="true">
+        </date-input-row>
+
+        <phone-input value="$ctrl.user.phone" label="Phone" name="phone" on-update="$ctrl.onPhoneUpdate(value)" form="form">
+        </phone-input>
+
+      </div>
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="$ctrl.$mdDialog.cancel()" class="">
+        Cancel
+      </md-button>
+      <md-button class="md-primary" type="submit">
+        Ok
+      </md-button>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>

@@ -1,0 +1,25 @@
+oye-jobs-app > .container {
+  height: 100%;
+}
+oye-jobs-app .progress-bar {
+  opacity: 0.8;
+  position: absolute;
+  z-index: 9;
+  transition: opacity 600ms ease-out;
+}
+
+oye-jobs-app .progress-bar.done {
+  opacity: 0;
+}
+
+oye-jobs-app .content {
+  position:relative;
+  top: 0;
+  // opacity:1;
+  // transition: all 0.6s ease-out;
+}
+
+oye-jobs-app .content.routing {
+  top: 100px;
+  opacity: 0;
+}

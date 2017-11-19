@@ -1,0 +1,8 @@
+<md-input-container class="md-block">
+  <label>{{$ctrl.label}}</label>
+  <input ng-required="$ctrl.required" type="text" name="{{$ctrl.name}}" ng-model="$ctrl.day" ng-change="$ctrl.updateDay()" maxlength="2">
+  <div ng-messages="$ctrl.form[$ctrl.name].$error">
+    <div ng-message="required">Day is required.</div>
+    <div ng-message="invalid">Day doesn't look valid.</div>
+  </div>
+</md-input-container>

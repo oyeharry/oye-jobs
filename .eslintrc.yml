@@ -1,0 +1,37 @@
+rules:
+  indent:
+    - 2
+    - 2
+    -
+      SwitchCase: 1
+  quotes:
+    - 2
+    - single
+  linebreak-style:
+    - 2
+    - unix
+  semi:
+    - 2
+    - always
+  no-alert: 2
+  camelcase: 2
+  no-extend-native: 2
+  brace-style:
+    - 1
+    - 1tbs
+    -
+      allowSingleLine: false
+env:
+  node: true
+  browser: true
+  mocha: true
+  es6: true
+parserOptions:
+  sourceType: 'module'
+globals:
+  "angular": false
+  "oyeJobsApp": false
+extends: 'eslint:recommended'
+plugins:
+    - html
+root: true

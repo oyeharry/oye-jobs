@@ -1,0 +1,42 @@
+<md-dialog aria-label="Role Setting" style="min-width: 300px;">
+  <form name="form" ng-submit="saveRole(form)">
+
+    <md-dialog-content style="max-width:800px; padding:32px 0px;">
+
+      <div style="padding:0 16px;">
+        <h3 class="md-headline" style="margin-top:0;">{{title}}</h3>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Role name</label>
+          <input required name="name" ng-model="roleEdit.name" autocomplete="off">
+          <div ng-messages="form.name.$error">
+            <div ng-message="required">Role name is required.</div>
+            <div ng-message="exist">This role name already exist.</div>
+            <div ng-message="wentWrong">Something went wrong while saving this role.</div>
+          </div>
+        </md-input-container>
+
+      </div>
+
+      <md-list-item class="md-2-line" ng-repeat="scope in roleEdit.scopes">
+        <div class="md-list-item-text" layout="column">
+          <h3> {{ scope.id }} </h3>
+          <p> {{ scope.description }} </p>
+        </div>
+        <md-switch class="md-secondary" ng-model="scope.enabled"></md-switch>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="onCancelClick()" class="">
+        Cancel
+      </md-button>
+      <md-button class="md-primary" type="submit">
+        Ok
+      </md-button>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>

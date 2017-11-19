@@ -1,0 +1,18 @@
+profile > .container {
+  max-width: 600px;
+  margin: 40px auto 60px;
+}
+
+profile > .container md-card {
+  padding: 8px;
+  margin-bottom: 30px;
+}
+
+profile > .container md-input-container {
+  margin-bottom: 30px;
+}
+
+profile .md-title .title-btn {
+  margin: 0;
+}
+

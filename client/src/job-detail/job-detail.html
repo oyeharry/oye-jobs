@@ -1,0 +1,51 @@
+<div class="container" layout="column">
+  <md-content flex layout-padding>
+
+
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{$ctrl.jobDetail.name}}</span>
+          <span class="md-subhead">{{$ctrl.jobDetail.location.name}}<span ng-if="$ctrl.jobDetail.location.country.name">,</span> {{$ctrl.jobDetail.location.country.name}}</span>
+          <span class="md-subhead">Posted {{$ctrl.jobDetail.postDate.humanize}}</span>
+          <span class="md-subhead no-apply-msg" ng-if="!$ctrl.jobDetail.active">This job no longer accepting application.</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-sm card-media"></div>
+        </md-card-title-media>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="start center" ng-if="$ctrl.jobDetail.active">
+        <md-button class="md-primary" ng-click="$ctrl.applyJob($ctrl.jobDetail)" ng-if="!$ctrl.Auth.hasJob($ctrl.jobDetail)">
+          <md-icon md-svg-icon="assignment-turned-in"></md-icon>
+          Apply
+        </md-button>
+        <md-button class="md-primary" ng-click="$ctrl.onRevokeJob($ctrl.jobDetail)" ng-if="$ctrl.Auth.hasJob($ctrl.jobDetail)">
+          <md-icon md-svg-icon="assignment-turned-in"></md-icon>
+          Revoke Application
+        </md-button>
+      </md-card-actions>
+      <md-card-content>
+
+        <md-list class="detail-list">
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+              <h3> {{ $ctrl.jobDetail.jobType.name }} </h3>
+              <p> Employment type </p>
+            </div>
+          </md-list-item>
+
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+              <h3> {{ $ctrl.jobDetail.jobDomain.name }} </h3>
+              <p> Domain </p>
+            </div>
+          </md-list-item>
+
+        </md-list>
+
+        <p ng-bind-html="$ctrl.jobDetail.description"></p>
+      </md-card-content>
+    </md-card>
+
+  </md-content>
+</div>

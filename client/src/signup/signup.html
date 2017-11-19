@@ -1,0 +1,93 @@
+<md-card class="container" layout="column">
+
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Create your Oye Jobs account</span>
+    </md-card-title-text>
+
+  </md-card-title>
+
+
+  <div layout-padding>
+    <div>
+      <form name="signupForm" ng-submit="$ctrl.createUser(signupForm)">
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>First Name</label>
+            <input required name="firstName" ng-model="$ctrl.newUser.firstName">
+            <div ng-messages="signupForm.firstName.$error">
+              <div ng-message="required">First name is required.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Last Name</label>
+            <input required name="lastName" ng-model="$ctrl.newUser.lastName">
+            <div ng-messages="signupForm.lastName.$error">
+              <div ng-message="required">Last name is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input required type="email" name="email" ng-model="$ctrl.newUser.email" autocomplete="off">
+          <div ng-messages="signupForm.email.$error">
+            <div ng-message="required">Email is required.</div>
+            <div ng-message="exist">This email account already exist.</div>
+            <div ng-message="wentWrong">Something went wrong while creating this account.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input required type="password" name="password" ng-model="$ctrl.newUser.password" autocomplete="off">
+          <div ng-messages="signupForm.password.$error">
+            <div ng-message="required">Password is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Confirm Password</label>
+          <input required type="password" name="confirmPassword" ng-model="$ctrl.newUser.confirmPassword" match="$ctrl.newUser.password">
+          <div ng-messages="signupForm.confirmPassword.$error">
+            <div ng-message="match">Passowrd did not match.</div>
+          </div>
+        </md-input-container>
+
+        <date-input-row month-label="Birth Month" day-label="Birth Day" year-label="Birth Year" year-name="birthYear" day-name="birthDay" form="signupForm" on-date-update="$ctrl.updateBirthDate(date)" required="true">
+        </date-input-row>
+
+        <md-input-container class="md-block gender-input">
+          <label>Gender</label>
+          <md-select ng-model="$ctrl.newUser.gender">
+            <md-option value="Male">
+              Male
+            </md-option>
+            <md-option value="Female">
+              Female
+            </md-option>
+            <md-option value="Other">
+              Other
+            </md-option>
+            <md-option value="Rather not say">
+              Rather not say
+            </md-option>
+          </md-select>
+        </md-input-container>
+
+        <phone-input label="Phone" name="phone" on-update="$ctrl.onPhoneUpdate(value)" form="signupForm">
+        </phone-input>
+
+        <div layout="row" layout-align="end" flex>
+          <md-button class="md-raised md-primary" type="submit">Create</md-button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+
+
+</md-card>

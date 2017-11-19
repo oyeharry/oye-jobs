@@ -1,0 +1,8 @@
+<md-autocomplete flex required md-input-name="search" md-no-cache="$ctrl.noCache" md-selected-item="$ctrl.selectedItem" md-search-text="$ctrl.searchText" md-items="searchItem in $ctrl.searchLocation($ctrl.searchText)" md-item-text="searchItem.name" md-require-match md-floating-label="{{$ctrl.label}}" md-selected-item-change="$ctrl.onSelectedItemChange(searchItem)" md-no-asterisk md-clear-button="true" md-no-asterisk>
+  <md-item-template>
+    <span md-highlight-text="$ctrl.searchText">{{searchItem.name}}</span>
+  </md-item-template>
+  <md-not-found>
+    No matches found
+  </md-not-found>
+</md-autocomplete>

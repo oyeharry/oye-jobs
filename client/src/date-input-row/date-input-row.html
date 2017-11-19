@@ -1,0 +1,12 @@
+<div layout-gt-sm="row">
+
+  <month-select label="{{$ctrl.monthLabel}}" on-month-change="$ctrl.updateMonth(value)" flex-gt-sm required="$ctrl.required" value="{{$ctrl.month}}">
+  </month-select>
+
+  <day-input form="$ctrl.form" label="{{$ctrl.dayLabel}}" name="{{$ctrl.dayName}}" month="$ctrl.month" day="$ctrl.day" on-update="$ctrl.updateDay(day)" required="$ctrl.required" flex-gt-sm></day-input>
+
+  <year-input form="$ctrl.form" label="{{$ctrl.yearLabel}}" name="{{$ctrl.yearName}}" year="$ctrl.year" on-update="$ctrl.updateYear(year)" required="$ctrl.required" flex-gt-sm></year-input>
+
+</div>
+
+

@@ -1,0 +1,8 @@
+<md-input-container class="md-block">
+    <label>{{$ctrl.label}}</label>
+    <input ng-required="$ctrl.required" type="text" name="{{$ctrl.name}}" ng-model="$ctrl.year" ng-change="$ctrl.updateYear()" maxlength="4" minlength="4">
+    <div ng-messages="$ctrl.form[$ctrl.name].$error">
+      <div ng-message="required">Year is required.</div>
+      <div ng-message="invalid">Year doesn't look valid.</div>
+    </div>
+ </md-input-container>

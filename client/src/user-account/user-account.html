@@ -1,0 +1,71 @@
+<div class="container">
+  <md-list>
+
+    <md-list-item class="md-3-line user-intro md-no-proxy">
+
+      <div class="md-avatar" ng-class="{'md-avatar-icon':!$ctrl.user.photo}">
+        <md-icon ng-show="!$ctrl.user.photo" md-svg-icon="{{$ctrl.user.avatar}}"></md-icon>
+        <img ng-show="$ctrl.user.photo" ng-src="{{$ctrl.user.profile.photoUrl}}" alt="{{$ctrl.user.name}}" ng-click="$ctrl.previewPhoto()" />
+      </div>
+      <div class="md-list-item-text">
+        <h3 class="md-headline">{{$ctrl.user.name}}</h3>
+        <h4>{{$ctrl.user.profile.email}}</h4>
+        <p ng-show="$ctrl.user.experiences.length">{{$ctrl.user.profile.title}}<span class="bullet-separator"></span> {{$ctrl.user.profile.location}}<span class="bullet-separator"><span ng-hide="$ctrl.user.profile.totalExperience.years <= 0">{{$ctrl.user.profile.totalExperience.years}} Year<span ng-hide="$ctrl.user.profile.totalExperience.years <= 1">s</span></span><span ng-hide="!$ctrl.user.profile.totalExperience.years ||
+        !$ctrl.user.profile.totalExperience.months">,</span> <span ng-hide="$ctrl.user.profile.totalExperience.months <= 0">{{$ctrl.user.profile.totalExperience.months}} Month<span ng-hide="$ctrl.user.profile.totalExperience.months <= 1">s</span></span> Experience
+          </span>
+        </p>
+      </div>
+
+      <md-menu aria-label="Settings" class="md-secondary" md-position-mode="target-right target" ng-if="$ctrl.Auth.getCurrentUser().id === $ctrl.user.id || $ctrl.Auth.hasScope('users:write')">
+        <md-button class="md-icon-button" ng-click="$mdMenu.open($event)" aria-label="Account Setting">
+          <md-icon md-svg-icon="setting" md-menu-align-target></md-icon>
+        </md-button>
+        <md-menu-content width="3">
+          <md-menu-item>
+            <md-button ng-click="$ctrl.onAccountSetting($event, $ctrl.user)">
+              Account Setting
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="$ctrl.onEditPhoto($event, $ctrl.user)">
+              Edit Photo
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-click="$ctrl.$changePasswordDialog.show($event, $ctrl.getUId())">
+            <md-button>
+              Change Password
+            </md-button>
+          </md-menu-item>
+      </md-menu>
+
+    </md-list-item>
+
+  </md-list>
+
+  <div class="basic-info">
+    <h4 class="md-title" layout="row" layout-align="center center">
+       <div flex>Basic Information</div>
+    </h4>
+
+    <div layout-gt-sm="row" class="detail-row">
+      <div flex-gt-sm>Gender</div>
+      <div flex-gt-sm>{{$ctrl.user.gender || 'NA'}}</div>
+    </div>
+    <md-divider></md-divider>
+    <div layout-gt-sm="row" class="detail-row">
+      <div flex-gt-sm>Birth Date</div>
+      <div flex-gt-sm>{{$ctrl.user.birthDate.humanize}}</div>
+    </div>
+    <md-divider></md-divider>
+    <div layout-gt-sm="row" class="detail-row">
+      <div flex-gt-sm>Birth Year</div>
+      <div flex-gt-sm>{{$ctrl.user.birthDate.year}}</div>
+    </div>
+    <md-divider></md-divider>
+    <div layout-gt-sm="row" class="detail-row">
+      <div flex-gt-sm>Phone</div>
+      <div flex-gt-sm>{{$ctrl.user.phone || 'NA'}}</div>
+    </div>
+  </div>
+
+</div>

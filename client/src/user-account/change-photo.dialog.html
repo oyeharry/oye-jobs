@@ -1,0 +1,36 @@
+<md-dialog aria-label="Edit Photo" style="min-width: 300px;" flow-init="{target: '/api/users/me/photo', testChunks:false,singleFile:true, fileParameterName:'profile-photo'}" flow-file-added="$ctrl.photoFileAdded($file)" flow-file-success="$ctrl.photoUploaded()" flow-file-error="$ctrl.onPhotoUploadError()">
+
+  <form name="form">
+
+    <md-dialog-content style="max-width:800px; padding:16px 0 32px;min-height: 200px;">
+
+      <div style="padding:0 16px;">
+        <div layout="row" layout-align="center center" style="margin-bottom:24px">
+          <h3 class="md-headline" style="margin:0">Edit Photo</h3>
+          <span flex></span>
+          <md-button class="md-icon-button" ng-click="$ctrl.$mdDialog.cancel()" style="margin:0;margin-right:-12px;">
+            <md-icon md-svg-icon="close" aria-label="Close dialog"></md-icon>
+          </md-button>
+        </div>
+
+        <croppie ng-show="$ctrl.editingPhotoUrl" img-url="{{$ctrl.editingPhotoUrl}}" component-id="profilePhoto"></croppie>
+
+        <div layout="column" layout="center center" ng-if="$ctrl.progressComplete">
+          <md-button class="md-primary" ng-show="$ctrl.user.photo && !$ctrl.editingPhotoUrl" ng-click="$ctrl.onRemovePhoto()">Remove Photo</md-button>
+          <span class="md-button md-raised md-primary" flow-btn flow-attrs="{accept:'.png, .jpg, .jpeg'}">Upload</span>
+        </div>
+
+        <md-progress-circular md-mode="indeterminate" style="position: absolute;top:50%;right:0;left:0;margin:0 auto;z-index: 1;" ng-hide="$ctrl.progressComplete"></md-progress-circular>
+
+      </div>
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row" ng-if="$ctrl.editingPhotoUrl">
+      <md-button class="md-primary" ng-click="$ctrl.onDoneBtn($flow)" ng-disabled="$ctrl.saving">
+        Done
+      </md-button>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>

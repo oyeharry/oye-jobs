@@ -1,0 +1,70 @@
+<md-dialog aria-label="Edit Basic Information" style="min-width: 300px;">
+  <form name="form" ng-submit="onFormSubmit(form)">
+
+    <md-dialog-content style="max-width:800px; padding:32px 0px;">
+
+      <div style="padding:0 16px;">
+        <h3 class="md-headline" style="margin-top:0;">Experience</h3>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Company</label>
+          <input required name="companyName" ng-model="experience.companyName">
+          <div ng-messages="form.companyName.$error">
+            <div ng-message="required">Company is required.</div>
+            <div ng-message="wentWrong">Something went wrong.</div>
+          </div>
+        </md-input-container>
+
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Title</label>
+          <input required name="title" ng-model="experience.title">
+          <div ng-messages="form.title.$error">
+            <div ng-message="required">Title is required.</div>
+            <div ng-message="wentWrong">Something went wrong.</div>
+          </div>
+        </md-input-container>
+        
+        <search-input search-url="/api/locations/search" on-search-change="setLocation(searchItem)" selected-item="experience.location" label="Location"></search-input>
+
+        <div layout-gt-sm="row">
+
+          <month-select label="Start Month" on-month-change="updateStartMonth(value)" required="true" value="{{startMonth}}" required="true" flex-gt-sm>
+          </month-select>
+
+          <year-input form="form" label="Start Year" name="startYear" year="startYear" on-update="updateStartYear(year)" required="true" flex-gt-sm></year-input>
+
+        </div>
+
+        <md-switch class="" ng-model="experience.currentCompany">This is my current Company</md-switch>
+
+        <div layout-gt-sm="row" ng-hide="experience.currentCompany">
+
+          <month-select label="End Month" on-month-change="updateEndMonth(value)" required="!experience.currentCompany" value="{{endMonth}}" flex-gt-sm>
+          </month-select>
+
+          <year-input form="form" label="End Year" name="endYear" year="endYear" on-update="updateEndYear(year)" flex-gt-sm required="!experience.currentCompany"></year-input>
+
+        </div>
+
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Description</label>
+          <input name="description" ng-model="experience.description">
+        </md-input-container>
+
+      </div>
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="onCancelClick()" class="">
+        Cancel
+      </md-button>
+      <md-button class="md-primary" type="submit">
+        Ok
+      </md-button>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>

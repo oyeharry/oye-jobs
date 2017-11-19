@@ -1,0 +1,42 @@
+<div class="basic-info">
+  <h4 class="md-title" layout="row" layout-align="center center">
+       <div flex>Education</div>
+       <md-button aria-label="Add Education" class="md-icon-button title-btn" ng-click="$ctrl.onUpdate($event)" ng-if="$ctrl.Auth.getCurrentUser().id === $ctrl.userId || $ctrl.Auth.hasScope('users:write')">
+        <md-icon md-svg-icon="add"></md-icon>
+      </md-button>
+  </h4>
+
+
+  <md-list>
+    <md-list-item class="md-3-line education-item md-no-proxy" ng-repeat="education in $ctrl.education">
+      <div class="md-list-item-text" layout="column">
+        <h3>{{education.schoolName}}</h3>
+        <h4>{{education.studyName}}</h4>
+        <p>{{education.startDate.humanize}} - {{education.endDate.humanize}}</p>
+        <p>{{education.description}}</p>
+      </div>
+
+      <md-menu class="md-secondary" md-position-mode="target-right target" ng-if="$ctrl.Auth.getCurrentUser().id === $ctrl.userId || $ctrl.Auth.hasScope('users:write')">
+        <md-button class="md-icon-button" ng-click="$mdMenu.open($event)">
+          <md-icon md-svg-icon="more-vert"></md-icon>
+        </md-button>
+        <md-menu-content width="3">
+          <md-menu-item>
+            <md-button ng-click="$ctrl.onUpdate($event, education)">
+              Edit
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-click="$ctrl.onDelete($event, education)">
+            <md-button>
+              Delete
+            </md-button>
+          </md-menu-item>
+      </md-menu>
+
+    </md-list-item>
+  </md-list>
+
+  <md-content flex layout-padding ng-if="!$ctrl.education.length">
+    <p>You have not added any education yet.</p>
+  </md-content>
+</div>

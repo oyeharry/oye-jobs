@@ -1,0 +1,17 @@
+{
+  "name": "Oye Jobs",
+  "short_name": "Oye Jobs",
+  "start_url": "/?homescreen=1",
+  "display": "standalone",
+  "theme_color": "#C9252B",
+  "background_color": "#C9252B",
+  "icons": [{
+    "src": "assets/manifest/icon-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }, {
+    "src": "assets/manifest/icon-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

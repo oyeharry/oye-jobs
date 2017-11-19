@@ -1,0 +1,84 @@
+<md-card class="container" layout="column">
+
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{$ctrl.jobWrite.title}}</span>
+    </md-card-title-text>
+
+  </md-card-title>
+
+
+  <div layout-padding>
+    <div>
+      <form name="jobWriteForm" ng-submit="$ctrl.postJob(jobWriteForm)">
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Name</label>
+            <input required name="name" ng-model="$ctrl.jobDetail.name">
+            <div ng-messages="jobWriteForm.name.$error">
+              <div ng-message="required">Job name is required.</div>
+              <div ng-message="wentWrong">Something went wrong while posting this job.</div>
+            </div>
+          </md-input-container>
+
+          <div flex-xs>
+            <md-switch ng-model="$ctrl.jobDetail.active">Active</md-switch>
+          </div>
+
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Description (Use HTML for correct format)</label>
+          <textarea type="text" required name="description" ng-model="$ctrl.jobDetail.description">
+          </textarea>
+          <div ng-messages="jobWriteForm.description.$error">
+            <div ng-message="required">Description is required.</div>
+          </div>
+        </md-input-container>
+
+        <search-input search-url="/api/locations/search" on-search-change="$ctrl.setLocation(searchItem)" selected-item="$ctrl.jobDetail.location" label="Location"></search-input>
+
+        <div layout="column">
+          <md-input-container class="md-block">
+            <label>Employment Type</label>
+            <md-select ng-model="$ctrl.jobDetail.jobType.id" required>
+              <md-option ng-value="{{jobType.id}}" ng-repeat="jobType in $ctrl.jobTypes">
+                {{jobType.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+
+        <div layout="column">
+          <md-input-container class="md-block">
+            <label>Domain</label>
+            <md-select ng-model="$ctrl.jobDetail.jobDomain.id" required>
+              <md-option ng-value="{{jobDomain.id}}" ng-repeat="jobDomain in $ctrl.jobDomains">
+                {{jobDomain.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <md-datepicker ng-model="$ctrl.jobDetail.startDate" md-placeholder="Start Date"></md-datepicker>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <md-datepicker ng-model="$ctrl.jobDetail.endDate" md-placeholder="End Date"></md-datepicker>
+          </md-input-container>
+        </div>
+
+        <div layout="row" layout-align="end" flex>
+          <md-button class="md-raised md-primary" type="submit">Post</md-button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+
+
+</md-card>

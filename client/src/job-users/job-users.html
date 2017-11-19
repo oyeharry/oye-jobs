@@ -1,0 +1,27 @@
+<div class="container md-whiteframe-1dp" layout="column">
+  <md-content flex layout-padding>
+    <h3 class="md-headline job-head">
+      <a ui-sref="jobDetail({id:$ctrl.job.id})">{{$ctrl.job.name}} Applicants</a>
+    </h3>
+    <span class="md-subhead job-subhead">{{$ctrl.job.location.name}}<span ng-if="$ctrl.job.location.country.name">,</span> {{$ctrl.job.location.country.name}}</span>
+  </md-content>
+
+  <md-list>
+
+    <md-list-item class="md-3-line" ng-repeat="user in $ctrl.job.users" ui-sref="profileUser({id:user.id})">
+      <md-icon md-svg-icon="{{user.avatar}}" class="md-avatar-icon avatar-icon"></md-icon>
+      <div class="md-list-item-text" layout="column">
+        <h3>{{user.profile.name}}</h3>
+        <h4>{{user.profile.email}}</h4>
+        <p ng-if="user.applyDate.humanize">Applied {{user.applyDate.humanize}}</p>
+      </div>
+
+    </md-list-item>
+
+  </md-list>
+
+  <md-content flex layout-padding ng-if="!$ctrl.job.users.length">
+    <p>No user found for this job.</p>
+  </md-content>
+
+</div>

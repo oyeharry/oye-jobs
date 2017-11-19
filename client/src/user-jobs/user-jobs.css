@@ -1,0 +1,8 @@
+user-jobs .container {
+  max-width: 800px;
+  margin: 40px auto 60px;  
+}
+
+user-jobs md-list-item, user-jobs md-list-item .md-list-item-inner {
+  min-height: 92px !important;
+}
