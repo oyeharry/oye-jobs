@@ -50,17 +50,32 @@
     text-rendering: optimizeLegibility;
     color: #444;
   }
-   @media (min-width: 768px) {
+
+  @media (min-width: 768px) {
     md-dialog {
       width: 468px;
     }
   }
+
   </style>
 </head>
 
 <body>
 
   <oye-jobs-app></oye-jobs-app>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39730871-3"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-39730871-3');
+
+  </script>
+
 
 </body>
 

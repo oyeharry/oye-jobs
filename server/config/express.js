@@ -13,6 +13,7 @@ import methodOverride from 'method-override';
 import cookieParser from 'cookie-parser';
 import errorHandler from 'errorhandler';
 import passport from 'passport';
+import enforce from 'express-sslify';
 
 import config from './environment';
 
@@ -31,6 +32,7 @@ export default function(app) {
   app.use(passport.initialize());
 
   if (env === 'production' || env === 'demo') {
+    app.use(enforce.HTTPS({ trustProtoHeader: true }));
     app.use(favicon(path.join(config.root, 'public', 'assets', 'images', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
     app.set('appPath', config.root + '/public');
