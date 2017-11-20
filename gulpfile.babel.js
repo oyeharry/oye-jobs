@@ -23,6 +23,7 @@ const clientPath = 'client';
 const paths = {
   dist: 'dist',
   client: {
+    manifest: `${clientPath}/manifest.json`,
     assets: `${clientPath}/assets/**/*`,
   },
   server: {
@@ -167,6 +168,7 @@ gulp.task('build', cb => {
     ],
     'transpile:server',
     'copy:assets',
+    'copy:manifest',
     'copy:server',
     'webpack:dist',
     cb);
@@ -178,6 +180,11 @@ gulp.task('clean:tmp', () => del(['.tmp/**/*'], { dot: true }));
 gulp.task('copy:assets', () => {
   return gulp.src([paths.client.assets])
     .pipe(gulp.dest(`${paths.dist}/public/assets`));
+});
+
+gulp.task('copy:manifest', () => {
+  return gulp.src([paths.client.manifest])
+    .pipe(gulp.dest(`${paths.dist}/public`));
 });
 
 gulp.task('copy:server', () => {
